@@ -1,0 +1,30 @@
+name: greeny solution
+description: "greeny_solution"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  get: ^4.6.6
+  cupertino_icons: ^1.0.6
+  
+  shared:
+    path: shared
+  core:
+    path: core
+ 
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
