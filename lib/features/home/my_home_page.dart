@@ -1,31 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:template/features/home/homepageController.dart';
+import 'package:greeny_solution/features/home/homepageController.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key});
 
-  final String title;
+  final String title = "sc";
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  LoginController loginControllerC = new LoginController();
   int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
-     
       _counter++;
     });
-    loginControllerC.login("email", "pass");
   }
 
   @override
   Widget build(BuildContext context) {
-    
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -43,7 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -62,8 +57,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Obx((){
-              return  Text(loginControllerC.user.value?.token ?? "cdc");
+            Obx(() {
+              return Text("cdc");
             }),
             const Text(
               'You have pushed the button this many times:',

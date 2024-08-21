@@ -8,8 +8,6 @@ class LocalStorage {
 
   late SharedPreferences _prefs;
 
-  
-
   Future<void> _init() async {
     _prefs = await SharedPreferences.getInstance();
   }

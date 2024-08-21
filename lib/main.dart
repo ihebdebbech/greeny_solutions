@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:template/theme/default_theme.dart';
-import 'package:template/di.dart';
-import 'package:template/features/home/my_home_page.dart';
+import 'package:greeny_solution/spash_creen.dart';
+import 'package:greeny_solution/theme/default_theme.dart';
+import 'package:greeny_solution/di.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: DefaultTheme.themeData,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SplashScreen(),
       initialBinding: DI(),
     );
   }

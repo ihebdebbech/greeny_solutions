@@ -1,17 +1,25 @@
-import 'package:shared/data/authentication/authentication_remote_service.dart';
+import 'package:shared/data/authentication/authentication_service.dart';
 import 'package:shared/domain/authentication/authentication_repository.dart';
 import 'package:shared/domain/authentication/entity/user_entity.dart';
 
 class AuthenticationDataRepository implements AuthenticationRepository {
-  final AuthenticationRemoteService _remoteService ;
+  final AuthenticationService _service;
 
-  AuthenticationDataRepository(this._remoteService);
+  AuthenticationDataRepository(this._service);
 
   @override
   Future<UserEntity> login(String email, String password) async {
-    // TODO: implement login
-       final userApiModel = await _remoteService.login(email, password);
-    return UserEntity.fromlocalmodel(userApiModel);
+    try {
+      final userApiModel = await _service.login(email, password);
+      final user = UserEntity.fromlocalmodel(userApiModel);
+      return user;
+    } catch (error) {
+      throw error;
+    }
   }
-  
+
+  @override
+  void saveToken(String token) {
+    _service.saveToken(token);
+  }
 }

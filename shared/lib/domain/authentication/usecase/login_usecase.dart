@@ -6,8 +6,13 @@ class LoginUsecase {
 
   LoginUsecase(this._repository);
 
-  Future<UserEntity> login(String email, String password) =>
-      _repository.login(email, password);
-      
-
+  Future<bool> login(String email, String password) async {
+    try {
+      final user = await _repository.login(email, password);
+      _repository.saveToken(user.token);
+      return true;
+    } catch (error) {
+      throw error;
+    }
+  }
 }

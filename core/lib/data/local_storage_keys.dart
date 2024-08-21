@@ -1,5 +1,5 @@
 class StringKey {
-  static String tokenKey = "";
+  static String tokenKey = "token_key";
 }
 
 class IntKey {}
