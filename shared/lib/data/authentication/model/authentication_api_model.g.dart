@@ -1,17 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_api_model.dart';
+part of 'authentication_api_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserApiModelImpl _$$UserApiModelImplFromJson(Map<String, dynamic> json) =>
-    _$UserApiModelImpl(
+_$AuthenticationApiModelImpl _$$AuthenticationApiModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AuthenticationApiModelImpl(
       token: json['token'] as String,
     );
 
-Map<String, dynamic> _$$UserApiModelImplToJson(_$UserApiModelImpl instance) =>
+Map<String, dynamic> _$$AuthenticationApiModelImplToJson(
+        _$AuthenticationApiModelImpl instance) =>
     <String, dynamic>{
       'token': instance.token,
     };

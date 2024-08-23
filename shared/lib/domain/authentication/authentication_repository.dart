@@ -1,6 +1,8 @@
-import 'package:shared/domain/authentication/entity/user_entity.dart';
+import 'package:shared/data/authentication/model/authentication_api_model.dart';
+import 'package:shared/domain/userManagement/entity/user_entity.dart';
 
 abstract class AuthenticationRepository {
-  Future<UserEntity> login(String email, String password);
+  Future<AuthenticationApiModel> login(String email, String password);
+  Future<AuthenticationApiModel> CreateAccount(UserEntity user);
   void saveToken(String token);
 }

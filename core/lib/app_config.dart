@@ -4,7 +4,7 @@ abstract class AppConfig {
 
 class DevConfiguration implements AppConfig {
   @override
-  String baseUrl = "http://10.54.234.127:3000/";
+  String baseUrl = "http://10.0.2.2:3000/";
 }
 
 class ProdConfiguration implements AppConfig {

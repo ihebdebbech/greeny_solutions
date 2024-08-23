@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'user_api_model.dart';
+part of 'authentication_api_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,33 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-UserApiModel _$UserApiModelFromJson(Map<String, dynamic> json) {
-  return _UserApiModel.fromJson(json);
+AuthenticationApiModel _$AuthenticationApiModelFromJson(
+    Map<String, dynamic> json) {
+  return _AuthenticationApiModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UserApiModel {
+mixin _$AuthenticationApiModel {
   String get token => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserApiModelCopyWith<UserApiModel> get copyWith =>
+  $AuthenticationApiModelCopyWith<AuthenticationApiModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserApiModelCopyWith<$Res> {
-  factory $UserApiModelCopyWith(
-          UserApiModel value, $Res Function(UserApiModel) then) =
-      _$UserApiModelCopyWithImpl<$Res, UserApiModel>;
+abstract class $AuthenticationApiModelCopyWith<$Res> {
+  factory $AuthenticationApiModelCopyWith(AuthenticationApiModel value,
+          $Res Function(AuthenticationApiModel) then) =
+      _$AuthenticationApiModelCopyWithImpl<$Res, AuthenticationApiModel>;
   @useResult
   $Res call({String token});
 }
 
 /// @nodoc
-class _$UserApiModelCopyWithImpl<$Res, $Val extends UserApiModel>
-    implements $UserApiModelCopyWith<$Res> {
-  _$UserApiModelCopyWithImpl(this._value, this._then);
+class _$AuthenticationApiModelCopyWithImpl<$Res,
+        $Val extends AuthenticationApiModel>
+    implements $AuthenticationApiModelCopyWith<$Res> {
+  _$AuthenticationApiModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -62,22 +64,25 @@ class _$UserApiModelCopyWithImpl<$Res, $Val extends UserApiModel>
 }
 
 /// @nodoc
-abstract class _$$UserApiModelImplCopyWith<$Res>
-    implements $UserApiModelCopyWith<$Res> {
-  factory _$$UserApiModelImplCopyWith(
-          _$UserApiModelImpl value, $Res Function(_$UserApiModelImpl) then) =
-      __$$UserApiModelImplCopyWithImpl<$Res>;
+abstract class _$$AuthenticationApiModelImplCopyWith<$Res>
+    implements $AuthenticationApiModelCopyWith<$Res> {
+  factory _$$AuthenticationApiModelImplCopyWith(
+          _$AuthenticationApiModelImpl value,
+          $Res Function(_$AuthenticationApiModelImpl) then) =
+      __$$AuthenticationApiModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String token});
 }
 
 /// @nodoc
-class __$$UserApiModelImplCopyWithImpl<$Res>
-    extends _$UserApiModelCopyWithImpl<$Res, _$UserApiModelImpl>
-    implements _$$UserApiModelImplCopyWith<$Res> {
-  __$$UserApiModelImplCopyWithImpl(
-      _$UserApiModelImpl _value, $Res Function(_$UserApiModelImpl) _then)
+class __$$AuthenticationApiModelImplCopyWithImpl<$Res>
+    extends _$AuthenticationApiModelCopyWithImpl<$Res,
+        _$AuthenticationApiModelImpl>
+    implements _$$AuthenticationApiModelImplCopyWith<$Res> {
+  __$$AuthenticationApiModelImplCopyWithImpl(
+      _$AuthenticationApiModelImpl _value,
+      $Res Function(_$AuthenticationApiModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +90,7 @@ class __$$UserApiModelImplCopyWithImpl<$Res>
   $Res call({
     Object? token = null,
   }) {
-    return _then(_$UserApiModelImpl(
+    return _then(_$AuthenticationApiModelImpl(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -96,25 +101,25 @@ class __$$UserApiModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UserApiModelImpl implements _UserApiModel {
-  _$UserApiModelImpl({required this.token});
+class _$AuthenticationApiModelImpl implements _AuthenticationApiModel {
+  _$AuthenticationApiModelImpl({required this.token});
 
-  factory _$UserApiModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UserApiModelImplFromJson(json);
+  factory _$AuthenticationApiModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AuthenticationApiModelImplFromJson(json);
 
   @override
   final String token;
 
   @override
   String toString() {
-    return 'UserApiModel(token: $token)';
+    return 'AuthenticationApiModel(token: $token)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserApiModelImpl &&
+            other is _$AuthenticationApiModelImpl &&
             (identical(other.token, token) || other.token == token));
   }
 
@@ -125,27 +130,29 @@ class _$UserApiModelImpl implements _UserApiModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserApiModelImplCopyWith<_$UserApiModelImpl> get copyWith =>
-      __$$UserApiModelImplCopyWithImpl<_$UserApiModelImpl>(this, _$identity);
+  _$$AuthenticationApiModelImplCopyWith<_$AuthenticationApiModelImpl>
+      get copyWith => __$$AuthenticationApiModelImplCopyWithImpl<
+          _$AuthenticationApiModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserApiModelImplToJson(
+    return _$$AuthenticationApiModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _UserApiModel implements UserApiModel {
-  factory _UserApiModel({required final String token}) = _$UserApiModelImpl;
+abstract class _AuthenticationApiModel implements AuthenticationApiModel {
+  factory _AuthenticationApiModel({required final String token}) =
+      _$AuthenticationApiModelImpl;
 
-  factory _UserApiModel.fromJson(Map<String, dynamic> json) =
-      _$UserApiModelImpl.fromJson;
+  factory _AuthenticationApiModel.fromJson(Map<String, dynamic> json) =
+      _$AuthenticationApiModelImpl.fromJson;
 
   @override
   String get token;
   @override
   @JsonKey(ignore: true)
-  _$$UserApiModelImplCopyWith<_$UserApiModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$AuthenticationApiModelImplCopyWith<_$AuthenticationApiModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

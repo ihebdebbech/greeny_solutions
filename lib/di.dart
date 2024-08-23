@@ -6,7 +6,6 @@ import 'package:shared/data/authentication/authentication_data_repository.dart';
 
 import 'package:shared/data/authentication/authentication_service.dart';
 import 'package:shared/domain/authentication/authentication_repository.dart';
-import 'package:shared/domain/authentication/entity/user_entity.dart';
 
 class DI extends Bindings {
   @override

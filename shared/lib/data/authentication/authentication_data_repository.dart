@@ -1,6 +1,9 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:shared/data/authentication/authentication_service.dart';
+import 'package:shared/data/authentication/model/authentication_api_model.dart';
 import 'package:shared/domain/authentication/authentication_repository.dart';
-import 'package:shared/domain/authentication/entity/user_entity.dart';
+import 'package:shared/domain/userManagement/entity/user_entity.dart';
 
 class AuthenticationDataRepository implements AuthenticationRepository {
   final AuthenticationService _service;
@@ -8,11 +11,11 @@ class AuthenticationDataRepository implements AuthenticationRepository {
   AuthenticationDataRepository(this._service);
 
   @override
-  Future<UserEntity> login(String email, String password) async {
+  Future<AuthenticationApiModel> login(String email, String password) async {
     try {
-      final userApiModel = await _service.login(email, password);
-      final user = UserEntity.fromlocalmodel(userApiModel);
-      return user;
+      final authApiModel = await _service.login(email, password);
+
+      return authApiModel;
     } catch (error) {
       throw error;
     }
@@ -21,5 +24,16 @@ class AuthenticationDataRepository implements AuthenticationRepository {
   @override
   void saveToken(String token) {
     _service.saveToken(token);
+  }
+
+  @override
+  Future<AuthenticationApiModel> CreateAccount(UserEntity user) async {
+    try {
+      final authApiModel = await _service.CreateAccount(user);
+
+      return authApiModel;
+    } catch (error) {
+      throw error;
+    }
   }
 }
