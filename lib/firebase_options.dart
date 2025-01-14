@@ -49,21 +49,6 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC5Y-Hj-W0dLDrdaLxzzzX5wZ93iFMpp6Q',
-    appId: '1:116831146399:android:251f30dc444752415b2daa',
-    messagingSenderId: '116831146399',
-    projectId: 'greenysol',
-    storageBucket: 'greenysol.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCuXxx3wTubIoP8N9PRGE02aixoohx62qs',
-    appId: '1:116831146399:ios:761decd28bd378865b2daa',
-    messagingSenderId: '116831146399',
-    projectId: 'greenysol',
-    storageBucket: 'greenysol.appspot.com',
-    iosBundleId: 'com.example.template',
-  );
+  
 
 }
