@@ -9,5 +9,7 @@ class DevConfiguration implements AppConfig {
 
 class ProdConfiguration implements AppConfig {
   @override
-  String baseUrl = "";
+  //String baseUrl = "http://192.168.1.6:3000/";
+  String baseUrl = "http://16.171.25.103/";
+  
 }

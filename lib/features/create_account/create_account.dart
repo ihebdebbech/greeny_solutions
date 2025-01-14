@@ -14,7 +14,19 @@ class CreateAccountPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primary,
       resizeToAvoidBottomInset: true,
-      body: Stack(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: AlignmentDirectional.topStart,
+            end: AlignmentDirectional.topEnd,
+            colors: [
+              AppColors.primary,   // Start color
+               //Color.fromARGB(255, 10, 78, 50)
+               Color.fromARGB(255, 12, 87, 56) // End color
+            ],
+          ),
+        ),
+        child:  Stack(
         children: [
           Positioned(
             top: 58,
@@ -31,7 +43,7 @@ class CreateAccountPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.822,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(60)),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(35)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.1),
@@ -46,7 +58,7 @@ class CreateAccountPage extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      SizedBox(height: 20),
+                      SizedBox(height: 10),
                       Text(
                         'Get Started',
                         style: GoogleFonts.poppins(
@@ -64,6 +76,7 @@ class CreateAccountPage extends StatelessWidget {
             ),
           ),
         ],
+      ),
       ),
     );
   }

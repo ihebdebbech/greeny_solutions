@@ -1,7 +1,18 @@
+buildscript {
+    repositories {
+        google() // Required for Google services
+        mavenCentral() // Required for Maven dependencies
+    }
+    dependencies {
+        // Add the Google Services Gradle plugin
+        classpath 'com.google.gms:google-services:4.4.2' // or latest version
+    }
+}
+
 allprojects {
     repositories {
-        google()
-        mavenCentral()
+        google() // Required for Google services
+        mavenCentral() // Required for Maven dependencies
     }
 }
 

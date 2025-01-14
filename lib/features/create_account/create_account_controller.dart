@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -13,7 +14,10 @@ class createAcountController extends GetxController {
   Future<bool> createAcount(UserEntity user) async {
     isLoading.value = true;
     try {
-      final userCreated = await _CreateAccountUsecase.CreateAccount(user);
+       final firebaseInstance = FirebaseMessaging.instance;
+    String? fcmToken = await firebaseInstance.getToken();
+    
+      final userCreated = await _CreateAccountUsecase.CreateAccount(user,fcmToken ?? "2IXEfdXQD2qwmy43iM0u-:APA91bEvuWym6S46aEMCyR_F8bnfUB9YftHeVwga6GQ2leEtce15CMpLhPAJVBztzCzEtEYzy88SCfdRKr9AU1Gli3MH8oz2yOIC40uESNzfvSfqsoRO7oJhvvjtw-AY1er9VYjARZoQ");
 
       isLoading.value = false;
       return true;

@@ -26,9 +26,15 @@ mixin _$UserApiModel {
   String? get birthdate => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   int get phonenumber => throw _privateConstructorUsedError;
+  bool get premium => throw _privateConstructorUsedError;
+  DateTime? get paymentdate => throw _privateConstructorUsedError;
 
+  /// Serializes this UserApiModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserApiModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserApiModelCopyWith<UserApiModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -45,7 +51,9 @@ abstract class $UserApiModelCopyWith<$Res> {
       String lastname,
       String? birthdate,
       String email,
-      int phonenumber});
+      int phonenumber,
+      bool premium,
+      DateTime? paymentdate});
 }
 
 /// @nodoc
@@ -58,6 +66,8 @@ class _$UserApiModelCopyWithImpl<$Res, $Val extends UserApiModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserApiModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -67,6 +77,8 @@ class _$UserApiModelCopyWithImpl<$Res, $Val extends UserApiModel>
     Object? birthdate = freezed,
     Object? email = null,
     Object? phonenumber = null,
+    Object? premium = null,
+    Object? paymentdate = freezed,
   }) {
     return _then(_value.copyWith(
       username: null == username
@@ -93,6 +105,14 @@ class _$UserApiModelCopyWithImpl<$Res, $Val extends UserApiModel>
           ? _value.phonenumber
           : phonenumber // ignore: cast_nullable_to_non_nullable
               as int,
+      premium: null == premium
+          ? _value.premium
+          : premium // ignore: cast_nullable_to_non_nullable
+              as bool,
+      paymentdate: freezed == paymentdate
+          ? _value.paymentdate
+          : paymentdate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -111,7 +131,9 @@ abstract class _$$UserApiModelImplCopyWith<$Res>
       String lastname,
       String? birthdate,
       String email,
-      int phonenumber});
+      int phonenumber,
+      bool premium,
+      DateTime? paymentdate});
 }
 
 /// @nodoc
@@ -122,6 +144,8 @@ class __$$UserApiModelImplCopyWithImpl<$Res>
       _$UserApiModelImpl _value, $Res Function(_$UserApiModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserApiModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,6 +155,8 @@ class __$$UserApiModelImplCopyWithImpl<$Res>
     Object? birthdate = freezed,
     Object? email = null,
     Object? phonenumber = null,
+    Object? premium = null,
+    Object? paymentdate = freezed,
   }) {
     return _then(_$UserApiModelImpl(
       username: null == username
@@ -157,6 +183,14 @@ class __$$UserApiModelImplCopyWithImpl<$Res>
           ? _value.phonenumber
           : phonenumber // ignore: cast_nullable_to_non_nullable
               as int,
+      premium: null == premium
+          ? _value.premium
+          : premium // ignore: cast_nullable_to_non_nullable
+              as bool,
+      paymentdate: freezed == paymentdate
+          ? _value.paymentdate
+          : paymentdate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -170,7 +204,9 @@ class _$UserApiModelImpl implements _UserApiModel {
       required this.lastname,
       this.birthdate,
       required this.email,
-      required this.phonenumber});
+      required this.phonenumber,
+      required this.premium,
+      required this.paymentdate});
 
   factory _$UserApiModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserApiModelImplFromJson(json);
@@ -187,10 +223,14 @@ class _$UserApiModelImpl implements _UserApiModel {
   final String email;
   @override
   final int phonenumber;
+  @override
+  final bool premium;
+  @override
+  final DateTime? paymentdate;
 
   @override
   String toString() {
-    return 'UserApiModel(username: $username, firstname: $firstname, lastname: $lastname, birthdate: $birthdate, email: $email, phonenumber: $phonenumber)';
+    return 'UserApiModel(username: $username, firstname: $firstname, lastname: $lastname, birthdate: $birthdate, email: $email, phonenumber: $phonenumber, premium: $premium, paymentdate: $paymentdate)';
   }
 
   @override
@@ -208,15 +248,20 @@ class _$UserApiModelImpl implements _UserApiModel {
                 other.birthdate == birthdate) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.phonenumber, phonenumber) ||
-                other.phonenumber == phonenumber));
+                other.phonenumber == phonenumber) &&
+            (identical(other.premium, premium) || other.premium == premium) &&
+            (identical(other.paymentdate, paymentdate) ||
+                other.paymentdate == paymentdate));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, username, firstname, lastname,
-      birthdate, email, phonenumber);
+      birthdate, email, phonenumber, premium, paymentdate);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserApiModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserApiModelImplCopyWith<_$UserApiModelImpl> get copyWith =>
@@ -237,7 +282,9 @@ abstract class _UserApiModel implements UserApiModel {
       required final String lastname,
       final String? birthdate,
       required final String email,
-      required final int phonenumber}) = _$UserApiModelImpl;
+      required final int phonenumber,
+      required final bool premium,
+      required final DateTime? paymentdate}) = _$UserApiModelImpl;
 
   factory _UserApiModel.fromJson(Map<String, dynamic> json) =
       _$UserApiModelImpl.fromJson;
@@ -255,7 +302,14 @@ abstract class _UserApiModel implements UserApiModel {
   @override
   int get phonenumber;
   @override
-  @JsonKey(ignore: true)
+  bool get premium;
+  @override
+  DateTime? get paymentdate;
+
+  /// Create a copy of UserApiModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserApiModelImplCopyWith<_$UserApiModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

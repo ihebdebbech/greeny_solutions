@@ -13,7 +13,10 @@ class UserApiModel with _$UserApiModel {
       required String lastname,
       String? birthdate,
       required String email,
-      required int phonenumber}) = _UserApiModel;
+      required int phonenumber,
+      required bool premium,
+      required DateTime? paymentdate,
+      }) = _UserApiModel;
 
   factory UserApiModel.fromJson(Map<String, dynamic> json) =>
       _$UserApiModelFromJson(json);

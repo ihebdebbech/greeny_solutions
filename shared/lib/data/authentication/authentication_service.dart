@@ -11,11 +11,13 @@ class AuthenticationService {
 
   AuthenticationService(this._networkClient, this._localStorage);
 
-  Future<AuthenticationApiModel> login(String email, String password) async {
+  Future<AuthenticationApiModel> login(String email, String password,String fcmtoken) async {
     try {
+      
       final Map<String, dynamic> requestData = {
         "email": email,
         "password": password,
+        "fcmtokenuser" : fcmtoken,
       };
 
       final response =
@@ -31,7 +33,35 @@ class AuthenticationService {
     _localStorage.setString(StringKey.tokenKey, token);
   }
 
-  Future<AuthenticationApiModel> CreateAccount(UserEntity user) async {
+  Future<String?> getToken() async {
+    try {
+      final token = await _localStorage.getString(StringKey.tokenKey);
+      print("dvfdvfd");
+      print(token);
+      if (token != null) {
+        final response = await _networkClient.getRequest("authorization",
+            requiresAuthentication: true);
+        if (response.statusCode == 202) {
+          print(token);
+
+          return token;
+        } else {
+          print("unauthorized");
+          throw "unauthorizated";
+          return "unauthorized";
+        }
+      }else{
+        print("unauthorized");
+          throw "unauthorizated";
+           return "unauthorized";
+      }
+    } catch (error) {
+      print(error);
+      throw error;
+    }
+  }
+
+  Future<AuthenticationApiModel> CreateAccount(UserEntity user,String fcmtoken) async {
     try {
       final Map<String, dynamic> requestData = {
         "username": user.username,
@@ -41,6 +71,7 @@ class AuthenticationService {
         "phonenumber": user.phonenumber,
         "birthdate": user.birthdate,
         "password": user.password,
+        "fcmtokenuser" : fcmtoken,
       };
 
       final response =

@@ -14,6 +14,10 @@ _$UserApiModelImpl _$$UserApiModelImplFromJson(Map<String, dynamic> json) =>
       birthdate: json['birthdate'] as String?,
       email: json['email'] as String,
       phonenumber: (json['phonenumber'] as num).toInt(),
+      premium: json['premium'] as bool,
+      paymentdate: json['paymentdate'] == null
+          ? null
+          : DateTime.parse(json['paymentdate'] as String),
     );
 
 Map<String, dynamic> _$$UserApiModelImplToJson(_$UserApiModelImpl instance) =>
@@ -24,4 +28,6 @@ Map<String, dynamic> _$$UserApiModelImplToJson(_$UserApiModelImpl instance) =>
       'birthdate': instance.birthdate,
       'email': instance.email,
       'phonenumber': instance.phonenumber,
+      'premium': instance.premium,
+      'paymentdate': instance.paymentdate?.toIso8601String(),
     };

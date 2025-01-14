@@ -11,9 +11,9 @@ class AuthenticationDataRepository implements AuthenticationRepository {
   AuthenticationDataRepository(this._service);
 
   @override
-  Future<AuthenticationApiModel> login(String email, String password) async {
+  Future<AuthenticationApiModel> login(String email, String password,String fcmtoken) async {
     try {
-      final authApiModel = await _service.login(email, password);
+      final authApiModel = await _service.login(email, password,fcmtoken);
 
       return authApiModel;
     } catch (error) {
@@ -27,9 +27,19 @@ class AuthenticationDataRepository implements AuthenticationRepository {
   }
 
   @override
-  Future<AuthenticationApiModel> CreateAccount(UserEntity user) async {
+  Future<bool> getToken() async {
     try {
-      final authApiModel = await _service.CreateAccount(user);
+      await _service.getToken();
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  @override
+  Future<AuthenticationApiModel> CreateAccount(UserEntity user,String fcmtoken) async {
+    try {
+      final authApiModel = await _service.CreateAccount(user,fcmtoken);
 
       return authApiModel;
     } catch (error) {

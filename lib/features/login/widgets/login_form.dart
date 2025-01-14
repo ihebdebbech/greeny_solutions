@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:greeny_solution/Skeleton_app.dart';
 import 'package:greeny_solution/features/create_account/create_account.dart';
+import 'package:greeny_solution/features/home/my_home_page.dart';
 import 'package:greeny_solution/features/login/login_controler.dart';
 import 'package:shared/shared.dart';
 import 'package:get/get.dart';
@@ -118,8 +120,10 @@ class LoginForm extends StatelessWidget {
                   "welcome Back ",
                   snackPosition: SnackPosition.BOTTOM,
                   colorText: const Color.fromARGB(255, 0, 190, 92),
-                  duration: const Duration(seconds: 3),
+                  duration: const Duration(seconds: 2 ),
+                  
                 );
+                Get.to(SkeletonApp());
               } else {
                 Get.snackbar(
                   "Login Failed",
@@ -155,7 +159,10 @@ class LoginForm extends StatelessWidget {
                   ),
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.105),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+        Divider(),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

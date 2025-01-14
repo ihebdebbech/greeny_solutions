@@ -2,31 +2,38 @@ import 'package:core/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorage {
+  late Future<SharedPreferences> _prefsFuture;
+
   LocalStorage(AppConfig appConfig) {
-    _init();
+    _prefsFuture = _init();
   }
 
-  late SharedPreferences _prefs;
-
-  Future<void> _init() async {
-    _prefs = await SharedPreferences.getInstance();
+  Future<SharedPreferences> _init() async {
+    return await SharedPreferences.getInstance();
   }
 
   Future<void> setString(String key, String value) async {
-    await _prefs.setString(key, value);
+    final prefs = await _prefsFuture;
+    await prefs.setString(key, value);
   }
 
   Future<String?> getString(String key) async {
-    return _prefs.getString(key);
+    final prefs = await _prefsFuture;
+    return prefs.getString(key);
   }
 
   Future<bool> remove(String key) async {
-    return _prefs.remove(key);
+    final prefs = await _prefsFuture;
+    return prefs.remove(key);
   }
 
   Future<bool> clear() async {
-    return _prefs.clear();
+    final prefs = await _prefsFuture;
+    return prefs.clear();
   }
 
-  bool containsKey(String key) => _prefs.containsKey(key);
+  Future<bool> containsKey(String key) async {
+    final prefs = await _prefsFuture;
+    return prefs.containsKey(key);
+  }
 }

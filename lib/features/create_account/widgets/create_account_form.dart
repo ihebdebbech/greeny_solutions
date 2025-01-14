@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:greeny_solution/Skeleton_app.dart';
 import 'package:greeny_solution/features/create_account/create_account_controller.dart';
+import 'package:greeny_solution/features/home/my_home_page.dart';
 import 'package:greeny_solution/features/login/login_page.dart';
 import 'package:shared/domain/userManagement/entity/user_entity.dart';
 import 'package:shared/shared.dart';
@@ -59,7 +61,8 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               screenIndex.value
-                  ? Column(children: [
+                  ? Column( 
+            crossAxisAlignment: CrossAxisAlignment.start,children: [
                       Text(
                         'firstname',
                         style: GoogleFonts.poppins(
@@ -74,7 +77,12 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                         decoration: InputDecoration(
                           filled: false,
                           fillColor: AppColors.secondary,
-                          labelText: 'firstname',
+                          hintText: 'Enter your First Name please',
+                          hintStyle: GoogleFonts.poppins(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.secondarydark,
+                        ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide: const BorderSide(
@@ -117,7 +125,13 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                         decoration: InputDecoration(
                           filled: false,
                           fillColor: AppColors.secondary,
-                          labelText: 'lastname',
+                          
+                          hintText: 'Enter your Last Name please',
+                          hintStyle: GoogleFonts.poppins(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.secondarydark,
+                        ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide: const BorderSide(
@@ -160,7 +174,13 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                         decoration: InputDecoration(
                           filled: false,
                           fillColor: AppColors.secondary,
-                          labelText: 'Username',
+                          
+                          hintText: 'Enter your Username please',
+                          hintStyle: GoogleFonts.poppins(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.secondarydark,
+                        ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide: const BorderSide(
@@ -206,7 +226,13 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                             decoration: InputDecoration(
                               filled: false,
                               fillColor: AppColors.secondary,
-                              labelText: 'BirthDate',
+                              
+                              hintText: 'Enter your Birth Date please',
+                          hintStyle: GoogleFonts.poppins(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.secondarydark,
+                        ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15.0),
                                 borderSide: const BorderSide(
@@ -251,7 +277,13 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                         decoration: InputDecoration(
                           filled: false,
                           fillColor: AppColors.secondary,
-                          labelText: 'Phone number',
+                          
+                          hintText: 'Enter your Phone number please',
+                          hintStyle: GoogleFonts.poppins(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.secondarydark,
+                        ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide: const BorderSide(
@@ -310,7 +342,10 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                         ),
                       ),
                     ])
-                  : Column(children: [
+                  : Column(
+                    
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
                       const SizedBox(height: 10),
                       Text(
                         'Email',
@@ -326,7 +361,13 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                         decoration: InputDecoration(
                           filled: false,
                           fillColor: AppColors.secondary,
-                          labelText: 'Email',
+                         
+                          hintText: 'Enter your Email please',
+                          hintStyle: GoogleFonts.poppins(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.secondarydark,
+                        ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide: const BorderSide(
@@ -375,7 +416,13 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                         decoration: InputDecoration(
                           filled: false,
                           fillColor: AppColors.secondary,
-                          labelText: 'Password',
+                          
+                          hintText: 'Enter your Password ',
+                          hintStyle: GoogleFonts.poppins(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.secondarydark,
+                        ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide: const BorderSide(
@@ -419,7 +466,13 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                         decoration: InputDecoration(
                           filled: false,
                           fillColor: AppColors.secondary,
-                          labelText: 'Confirm Password',
+                          
+                          hintText: 'Confirm your Password',
+                          hintStyle: GoogleFonts.poppins(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.secondarydark,
+                        ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide: const BorderSide(
@@ -474,7 +527,7 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                                   phonenumber: int.parse(
                                       _phoneNumberController.value.text),
                                   birthdate: _birthDateController.value.text,
-                                  password: _passwordController.value.text);
+                                  password: _passwordController.value.text, premium: false);
                               final status = await createAcountControllerC
                                   .createAcount(userData);
                               if (status) {
@@ -486,6 +539,7 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                                       const Color.fromARGB(255, 0, 190, 92),
                                   duration: const Duration(seconds: 3),
                                 );
+                                 Get.to(SkeletonApp());
                               } else {
                                 Get.snackbar(
                                   "Failed to create an account",
@@ -525,7 +579,10 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
                         ),
                       ),
                       SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.05),
+                          height: MediaQuery.of(context).size.height * 0.035),
+                          Divider(),
+                          SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.01),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

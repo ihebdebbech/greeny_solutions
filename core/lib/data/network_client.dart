@@ -46,7 +46,7 @@ class NetworkClient {
       final options = requiresAuthentication
           ? Options(
               headers: {
-                'Authorization':
+                'authorization':
                     await _localStorage.getString(StringKey.tokenKey),
               },
             )
@@ -69,7 +69,7 @@ class NetworkClient {
       final options = requiresAuthentication
           ? Options(
               headers: {
-                'Authorization':
+                'authorization':
                     await _localStorage.getString(StringKey.tokenKey),
               },
             )
@@ -92,7 +92,7 @@ class NetworkClient {
       final options = requiresAuthentication
           ? Options(
               headers: {
-                'Authorization':
+                'authorization':
                     await _localStorage.getString(StringKey.tokenKey),
               },
             )
@@ -114,7 +114,7 @@ class NetworkClient {
       final options = requiresAuthentication
           ? Options(
               headers: {
-                'Authorization':
+                'authorization':
                     await _localStorage.getString(StringKey.tokenKey),
               },
             )
@@ -124,6 +124,19 @@ class NetworkClient {
       return response;
     } on DioException catch (e) {
       AppLogger.error('DELETE request error: ${e.message}');
+      rethrow;
+    }
+  }
+
+  Future<Response> postCopilotRequest(
+    Map<String, dynamic> data ) async {
+    try {
+      String path = "http://16.171.43.197/chatbot/quickchat";
+
+      final response = await _dio.post(path, data: data);
+      return response;
+    } on DioException catch (e) {
+      AppLogger.error('POST request error: ${e.message}');
       rethrow;
     }
   }

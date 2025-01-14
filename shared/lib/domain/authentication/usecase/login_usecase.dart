@@ -6,9 +6,9 @@ class LoginUsecase {
 
   LoginUsecase(this._repository);
 
-  Future<bool> login(String email, String password) async {
+  Future<bool> login(String email, String password,String fcmtoken) async {
     try {
-      final auth = await _repository.login(email, password);
+      final auth = await _repository.login(email, password,fcmtoken);
       _repository.saveToken(auth.token);
       return true;
     } catch (error) {

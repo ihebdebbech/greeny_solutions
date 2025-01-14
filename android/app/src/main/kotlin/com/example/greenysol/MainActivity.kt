@@ -1,4 +1,4 @@
-package com.example.template
+package com.example.greenysol
 
 import io.flutter.embedding.android.FlutterActivity
 

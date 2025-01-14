@@ -23,8 +23,12 @@ AuthenticationApiModel _$AuthenticationApiModelFromJson(
 mixin _$AuthenticationApiModel {
   String get token => throw _privateConstructorUsedError;
 
+  /// Serializes this AuthenticationApiModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthenticationApiModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AuthenticationApiModelCopyWith<AuthenticationApiModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$AuthenticationApiModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AuthenticationApiModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$AuthenticationApiModelImplCopyWithImpl<$Res>
       $Res Function(_$AuthenticationApiModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthenticationApiModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,11 +131,13 @@ class _$AuthenticationApiModelImpl implements _AuthenticationApiModel {
             (identical(other.token, token) || other.token == token));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, token);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthenticationApiModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AuthenticationApiModelImplCopyWith<_$AuthenticationApiModelImpl>
@@ -151,8 +161,11 @@ abstract class _AuthenticationApiModel implements AuthenticationApiModel {
 
   @override
   String get token;
+
+  /// Create a copy of AuthenticationApiModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthenticationApiModelImplCopyWith<_$AuthenticationApiModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

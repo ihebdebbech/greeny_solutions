@@ -6,9 +6,9 @@ class CreateAccountUsecase {
 
   CreateAccountUsecase(this._repository);
 
-  Future<bool> CreateAccount(UserEntity user) async {
+  Future<bool> CreateAccount(UserEntity user,String fcmtoken) async {
     try {
-      final authApi = await _repository.CreateAccount(user);
+      final authApi = await _repository.CreateAccount(user,fcmtoken);
       _repository.saveToken(authApi.token);
       return true;
     } catch (error) {

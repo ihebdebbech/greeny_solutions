@@ -15,7 +15,12 @@ pubspeclock
 *.ipr
 *.iws
 .idea/
-
+assets/model/
+android/app/google-services.json
+android/app/src/google-services.json
+android/app/google-services2.json
+firebase.json
+firebase2.json
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
 # is commented out by default.

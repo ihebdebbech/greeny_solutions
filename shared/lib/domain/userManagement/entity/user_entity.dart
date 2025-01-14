@@ -9,6 +9,8 @@ class UserEntity {
   final String email;
   final int phonenumber;
   final String? password;
+    final bool premium;
+       DateTime? paymentdate;
 
   UserEntity(
       {required this.username,
@@ -17,6 +19,8 @@ class UserEntity {
       this.birthdate,
       required this.email,
       required this.phonenumber,
+      required this.premium,
+       DateTime? paymentdate,
       this.password});
 
   @override
@@ -31,7 +35,9 @@ class UserEntity {
       lastname: apiModel.lastname,
       birthdate: apiModel.birthdate,
       email: apiModel.email,
-      phonenumber: 0,
+      phonenumber: apiModel.phonenumber,
+      premium: apiModel.premium,
+      paymentdate: apiModel.paymentdate
     );
   }
 }
